@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N deliverable_1
+#PBS -o ./job.out
+#PBS -e ./job.err
+#PBS -q short_cpuQ
+#PBS -l walltime=3:00:00
+#PBS -l select=1:ncpus=64
+
+
+module load gcc91
+
+echo "PBS_O_WORKDIR = $PBS_O_WORKDIR"
+
+cd "$PBS_O_WORKDIR/repo/scripts"
+
+chmod +x compile.sh
+./compile.sh
+
